@@ -1,0 +1,33 @@
+<mat-card class="example-card mb-4">
+  <mat-card-title>{{ prodObj.pname }}</mat-card-title>
+  <mat-card-content>
+    <p>
+      {{ prodObj.pdetails }}
+      <strong>{{ prodObj.pstatus }}</strong>
+    </p>
+  </mat-card-content>
+  <mat-divider inset></mat-divider>
+  <mat-card-actions class="d-flex justify-content-around">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="statusUpdateOnClick(productStatus.InProgress)"
+    >
+      In progress
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="statusUpdateOnClick(productStatus.Dispatched)"
+    >
+      Dispatched
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="statusUpdateOnClick(productStatus.Delivered)"
+    >
+      Delivered
+    </button>
+  </mat-card-actions>
+</mat-card>

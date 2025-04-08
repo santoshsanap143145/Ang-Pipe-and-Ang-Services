@@ -1,0 +1,9 @@
+
+
+<h3>post-one component</h3>
+
+<ul class="list-group">
+    <li *ngFor="let post of postsData;let i = index" class="list-group-item">
+        {{i + 1}}  {{post.title}}
+    </li>
+</ul>

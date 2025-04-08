@@ -1,0 +1,33 @@
+<mat-card class="example-card mb-5">
+  <mat-card-content>
+    <form #prodForm="ngForm" (ngSubmit)="addOnClick()">
+      <div class="form-group">
+        <label for="pname">Product Name</label>
+        <input
+          required
+          ngModel
+          type="text"
+          name="pname"
+          class="form-control"
+          id="pname"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="pdetails">Product Description</label>
+        <textarea
+          required
+          ngModel
+          rows="4"
+          name="pdetails"
+          class="form-control"
+          id="pdetails"
+        >
+        </textarea>
+      </div>
+      <div class="text-right">
+        <button mat-raised-button color="accent">Add Product</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

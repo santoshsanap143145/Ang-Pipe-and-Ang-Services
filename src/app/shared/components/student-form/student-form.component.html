@@ -1,0 +1,74 @@
+<div class="card">
+  <div class="card-body">
+    <form #stdForm="ngForm" (ngSubmit)="submitOnClick()">
+      <div class="form-group">
+        <label for="fname"> First Name <sup class="text-danger">*</sup> </label>
+        <input
+          required
+          ngModel
+          name="fname"
+          type="text"
+          id="fname"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="lname"> Last Name <sup class="text-danger">*</sup> </label>
+        <input
+          required
+          ngModel
+          name="lname"
+          type="text"
+          id="lname"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email"> Email Id <sup class="text-danger">*</sup> </label>
+        <input
+          required
+          ngModel
+          name="email"
+          type="text"
+          id="email"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="contact">
+          Contact No <sup class="text-danger">*</sup>
+        </label>
+        <input
+          required
+          ngModel
+          name="contact"
+          type="text"
+          id="contact"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="isActive">Is Active</label>
+        <select
+          ngModel
+          required
+          name="isActive"
+          id="isActive"
+          class="form-control"
+        >
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <button
+        [disabled]="stdForm.invalid"
+        type="submit"
+        mat-raised-button
+        class="btn-block"
+        color="primary"
+      >
+        Add Student
+      </button>
+    </form>
+  </div>
+</div>

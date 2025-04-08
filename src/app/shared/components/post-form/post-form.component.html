@@ -1,0 +1,29 @@
+<form #postForm="ngForm" (ngSubmit)="addOnPostClick()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input ngModel name="title" type="text" id="title" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea
+      ngModel
+      type="text"
+      rows="4"
+      name="body"
+      id="content"
+      class="form-control"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="userId">User Id</label>
+    <select ngModel name="userId" type="text" class="form-control" id="userId">
+      <option [value]="val" *ngFor="let val of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+        {{ val }}
+      </option>
+    </select>
+  </div>
+
+  <button class="btn btn-sm btn-primary">Add Post</button>
+</form>

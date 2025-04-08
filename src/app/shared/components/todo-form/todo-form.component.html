@@ -1,0 +1,15 @@
+<form #todoForm="ngForm" (ngSubmit)="addOnToDoClick()">
+  <div class="form-group">
+    <label for="todoItem">Todo Item</label>
+    <input
+    required
+      ngModel
+      type="text"
+      name="todoItem"
+      id="todoItem"
+      class="form-control"
+    />
+  </div>
+  <!-- <button class="btn btn-sm btn-primary">Add Todo</button> -->
+  <button mat-raised-button color="primary">Add Todo</button>
+</form>

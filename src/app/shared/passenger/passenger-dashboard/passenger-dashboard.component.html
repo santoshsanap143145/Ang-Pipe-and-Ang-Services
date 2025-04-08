@@ -1,0 +1,14 @@
+<h2>Airline Passengers</h2>
+
+<!-- passenger count comp -->
+<app-passenger-count></app-passenger-count>
+
+<!-- passenger list -->
+<ul class="list-group my-4">
+    <li *ngFor="let passngr of passArr" class="list-group-item">
+        {{passngr.fullname}}
+    </li>
+</ul>
+
+<!-- passenger Cards -->
+<app-passenger-card [passObj]="passngr" *ngFor="let passngr of passArr"></app-passenger-card>

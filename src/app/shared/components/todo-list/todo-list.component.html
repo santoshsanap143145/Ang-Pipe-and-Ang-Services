@@ -1,0 +1,22 @@
+<ul class="list-group" *ngIf="todosData.length >0;else noTodo">
+  <li
+    class="list-group-item d-flex justify-content-between"
+    [ngClass]="{
+      'list-group-item-primary': i % 2 === 0,
+      'list-group-item-danger': i % 2 !== 0
+    }"
+    *ngFor="let todo of todosData; let i = index"
+  >
+    <strong> {{ i + 1 }}] {{ todo.todoItem }} </strong>
+    <span>
+      <button class="btn btn-sm btn-outline-primary">Edit</button>
+      <button class="btn btn-sm btn-outline-danger ml-2" (click)="removeOnClick(todo)">Remove</button>
+    </span>
+  </li>
+</ul>
+
+<ng-template #noTodo>
+  <p class="alert alert-info">
+    There is no Todo yet...
+  </p>
+</ng-template>
