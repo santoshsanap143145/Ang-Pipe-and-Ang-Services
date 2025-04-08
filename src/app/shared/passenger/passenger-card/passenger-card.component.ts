@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Ipassenger } from '../../models/passenger';
 
 @Component({
@@ -10,6 +10,9 @@ export class PassengerCardComponent implements OnInit {
   @Input() passObj !: Ipassenger;
 
   isInEditMode : boolean = false
+  @ViewChild('fullName') fullName !: ElementRef
+
+  @Output() emitObj : EventEmitter<Ipassenger> = new EventEmitter<Ipassenger>()
   constructor() { }
 
   ngOnInit(): void {
@@ -21,6 +24,10 @@ export class PassengerCardComponent implements OnInit {
 
   updateOnclick(){
     this.isInEditMode = false
+    console.log(this.passObj)
+    this.passObj.fullname = this.fullName.nativeElement.value
+    console.log(this.passObj)
+    this.emitObj.emit(this.passObj)
   }
 
 }

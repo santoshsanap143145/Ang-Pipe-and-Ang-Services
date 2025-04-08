@@ -5,10 +5,14 @@
 
 <!-- passenger list -->
 <ul class="list-group my-4">
-    <li *ngFor="let passngr of passArr" class="list-group-item">
-        {{passngr.fullname}}
-    </li>
+  <li *ngFor="let passngr of passArr" class="list-group-item">
+    {{ passngr.fullname }}
+  </li>
 </ul>
 
 <!-- passenger Cards -->
-<app-passenger-card [passObj]="passngr" *ngFor="let passngr of passArr"></app-passenger-card>
+<app-passenger-card
+  (emitObj)="emitObj($event)"
+  [passObj]="passngr"
+  *ngFor="let passngr of passArr"
+></app-passenger-card>
