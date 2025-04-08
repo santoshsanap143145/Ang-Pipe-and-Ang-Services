@@ -15,4 +15,12 @@ export class PassengerCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  editOnClick(){
+    this.isInEditMode = true
+  }
+
+  updateOnclick(){
+    this.isInEditMode = false
+  }
+
 }
