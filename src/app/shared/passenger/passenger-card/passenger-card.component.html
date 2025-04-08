@@ -1,16 +1,16 @@
 <mat-card class="example-card mb-5">
   <mat-card-title>
-    <p *ngIf="!isInEditMode">
+    <!-- <p *ngIf="!isInEditMode">
       {{ passObj.fullname }}
-    </p>
+    </p> -->
 
     <div class="form-group">
       <input
         #fullName
-        *ngIf="isInEditMode"
+        [disabled]="!isInEditMode"
         [value]="passObj.fullname"
         type="text"
-        class="form-control"
+        class="form-control fullName"
       />
     </div>
   </mat-card-title>
@@ -27,22 +27,21 @@
   </mat-card-content>
   <mat-divider inset></mat-divider>
   <mat-card-actions>
-    <button
-      (click)="editOnClick()"
+    <!-- <button
+      (click)="isInEditMode = !isInEditMode"
       *ngIf="!isInEditMode"
       mat-raised-button
       color="primary"
     >
       Edit
-    </button>
+    </button> -->
     <button
-      (click)="updateOnclick()"
-      *ngIf="isInEditMode"
+      (click)="fullNameUpdateOnClick(fullName.value)"
       mat-raised-button
       color="primary"
     >
-      Done
+      {{isInEditMode ? 'Done' : 'Edit'}}
     </button>
-    <button mat-raised-button color="warn">Remove</button>
+    <button (click)="removeOnClick()" mat-raised-button color="warn">Remove</button>
   </mat-card-actions>
 </mat-card>

@@ -1,5 +1,6 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Ipassenger } from '../../models/passenger';
+import { PassengerService } from '../../services/passenger.service';
 
 @Component({
   selector: 'app-passenger-card',
@@ -10,24 +11,27 @@ export class PassengerCardComponent implements OnInit {
   @Input() passObj !: Ipassenger;
 
   isInEditMode : boolean = false
-  @ViewChild('fullName') fullName !: ElementRef
 
-  @Output() emitObj : EventEmitter<Ipassenger> = new EventEmitter<Ipassenger>()
-  constructor() { }
+  constructor(private _passengerService : PassengerService) { }
 
   ngOnInit(): void {
   }
 
-  editOnClick(){
-    this.isInEditMode = true
+  fullNameUpdateOnClick(updatedName : string){
+
+    // API call if isInEditMode === true
+   
+    if(this.isInEditMode){
+      let updatedPassObj: Ipassenger = {...this.passObj, fullname : updatedName}
+    console.log(updatedPassObj)
+     //  so we will call method form passenger service here
+      this._passengerService.updateNameOfPass(updatedPassObj)
+    }
+    this.isInEditMode = !this.isInEditMode
   }
 
-  updateOnclick(){
-    this.isInEditMode = false
-    console.log(this.passObj)
-    this.passObj.fullname = this.fullName.nativeElement.value
-    console.log(this.passObj)
-    this.emitObj.emit(this.passObj)
+  removeOnClick(){
+    this._passengerService.removePassenger(this.passObj.id)
   }
 
 }

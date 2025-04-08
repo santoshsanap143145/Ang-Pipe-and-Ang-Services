@@ -1,7 +1,9 @@
 <h2>Airline Passengers</h2>
 
 <!-- passenger count comp -->
-<app-passenger-count></app-passenger-count>
+<app-passenger-count 
+  [totalcheckInCount]="checkInCount"
+[totalPassCount]="passArr.length"></app-passenger-count>
 
 <!-- passenger list -->
 <ul class="list-group my-4">
@@ -12,7 +14,6 @@
 
 <!-- passenger Cards -->
 <app-passenger-card
-  (emitObj)="emitObj($event)"
   [passObj]="passngr"
   *ngFor="let passngr of passArr"
 ></app-passenger-card>

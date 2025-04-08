@@ -9,15 +9,16 @@ import { Ipassenger } from '../../models/passenger';
 })
 export class PassengerDashboardComponent implements OnInit {
   passArr: Array<Ipassenger> = [];
+  checkInCount !: number
   constructor(private _passengerService: PassengerService) {}
 
   ngOnInit(): void {
     this.passArr = this._passengerService.fetchAllPassengers();
+    this.getCheckinCount()
   }
 
-  emitObj(passObj: Ipassenger) {
-    let objIndex = this.passArr.findIndex((pass) => pass.id === passObj.id);
-    console.log(objIndex);
-    this.passArr[objIndex] = { ...passObj };
+  getCheckinCount(){
+    this.checkInCount = this.passArr.filter(pass => pass.checkedIn).length
   }
+
 }

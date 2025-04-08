@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Ipassenger } from '../models/passenger';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -46,10 +47,23 @@ export class PassengerService {
       children: null,
     },
   ]
-  constructor() { }
+  constructor(private _snackBar : SnackbarService) { }
 
   fetchAllPassengers(){
     // API call to get data
     return this.passengersArr
+  }
+
+  updateNameOfPass(updatePass : Ipassenger){
+    let getIndex = this.passengersArr.findIndex(pass => pass.id === updatePass.id);
+
+    this.passengersArr[getIndex] = updatePass;
+    this._snackBar.openSnackBar(`the name of Passenger is updated to ${updatePass.fullname}`)
+  }
+
+  removePassenger(id : number){
+    // API Call to remove passenger object
+    let getIndex = this.passengersArr.findIndex(pass => pass.id === id);
+    this.passengersArr.splice(getIndex, 1)
   }
 }
