@@ -6,6 +6,7 @@
 
     <div class="form-group">
       <input
+        #fullName
         *ngIf="isInEditMode"
         [value]="passObj.fullname"
         type="text"
@@ -26,10 +27,22 @@
   </mat-card-content>
   <mat-divider inset></mat-divider>
   <mat-card-actions>
-    <button (click)="editOnClick()" *ngIf="!isInEditMode" mat-raised-button color="primary">
+    <button
+      (click)="editOnClick()"
+      *ngIf="!isInEditMode"
+      mat-raised-button
+      color="primary"
+    >
       Edit
     </button>
-    <button (click)="updateOnclick()" *ngIf="isInEditMode" mat-raised-button color="primary">Done</button>
+    <button
+      (click)="updateOnclick()"
+      *ngIf="isInEditMode"
+      mat-raised-button
+      color="primary"
+    >
+      Done
+    </button>
     <button mat-raised-button color="warn">Remove</button>
   </mat-card-actions>
 </mat-card>
