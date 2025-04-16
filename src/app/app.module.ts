@@ -50,7 +50,6 @@ import { PassengerModule } from './shared/passenger/passenger.module';
     MaterialModule,
     ProductsModule,
     PassengerModule,
-    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
